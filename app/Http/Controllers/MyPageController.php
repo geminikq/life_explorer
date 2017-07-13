@@ -36,18 +36,20 @@ class MyPageController extends Controller
     public function createnote()
     {
         //echo $_POST['product_name'];  handle shopping_notes database before jump to view
-        if (isset($_POST['bought_at']))
+        $id = $_POST['hiddenid'];
+        if (isset($_POST['confirm']))
         {
-            $new_note = new Shopping_note;
-            $new_note->user_id = Auth::user()->id;
-            $new_note->bought_at = $_POST['bought_at'];//date('Y-m-d');
-            $new_note->product_channel_id = '1';
+            $note = Shopping_note::where('id', $id)->first();
+            //echo $_POST['product_channel_id'];
+            //$new_note->bought_at = $_POST['bought_at'];//date('Y-m-d');            
+            $note->product_channel_id = $_POST['product_channel_id'];
             //$new_note->qulity_id = 1;
             //$new_note->rate_no = 1;
-            $new_note->save();
+            $note->save();
         }
         //index();
-        return view('mypage.homepage');
+        $notes = Shopping_note::orderBy('bought_at', 'desc')->get();
+        return view('mypage.homepage', ['notes' => $notes]);
     }
 
     public function myfollow()

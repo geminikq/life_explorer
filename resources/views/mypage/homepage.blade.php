@@ -5,11 +5,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <input type="button" disabled="disabled" value="购物笔记">            
+            <input type="button" disabled="disabled" name="mynote" value="购物笔记">            
             <a href="{{ route('myfollow') }}">
                 <input type="button" name="myfollow" value="我的关注">
             </a>
-            <a href="{{ route('home') }}">
+            <a href="{{ route('myQA') }}">
                 <input type="button" name="myQA" value="我的问答">
             </a>
         </div>

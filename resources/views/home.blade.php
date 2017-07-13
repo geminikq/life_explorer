@@ -19,17 +19,13 @@
 <div class="container">
     <br>
     <div class="row">
-        <div class="col-md-4">
-            accounts in database: <br> 
+        <div class="col-md-8">
             <!-- this is an example of how to show db data in view -->
-            @foreach ($users as $user)
-                用户名: {{ $user->name }}<br>
+            @foreach ($recs as $rec)
+                消息类型 {{ $rec['recMsgType'] }} icon -- 
+                {{ $rec['recMsgContent'] }} --
+                {{ $rec['recReason'] }} <br>
             @endforeach
-            @if (Auth::check())
-                this account: {{ $thisAuth->name }}
-            @else
-                please login
-            @endif
         </div>
     </div>
 </div>

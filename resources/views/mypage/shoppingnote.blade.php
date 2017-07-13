@@ -4,9 +4,9 @@
 <br>
 <div class="container">
     <div class="row col-md-4">
-        <form method="POST" action="{{ route('createnote') }}">
+        <form method="POST" action="{{ url('/mypage/homepage/') }}">
             {{ csrf_field() }} 
-
+            <input type="hidden" name="hiddenid", value="{{ $note->id }}">
             购买日期：  <input type="text" name="bought_at" value="{{ $note->bought_at }}">  <a href="">修改</a> 
             <hr>
             购买产品：
@@ -17,7 +17,7 @@
             <a href="">追加评论>></a>
             <hr>
             购买渠道：  
-            <input type="text" name="product_channel" value="{{ $note->product_channel_id }}"> 
+            <input type="text" name="product_channel_id" value="{{ $note->product_channel_id }}"> 
             <a href="">选择一个渠道</a> <br>
             服务：<input type="checkbox" name="">好 <input type="checkbox" name="">差 <br>
             <a href="">追加评论>></a>

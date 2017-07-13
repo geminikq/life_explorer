@@ -18,9 +18,13 @@
 Route::post('/search', 'HomeController@search')->name('search');
 Route::get('/mymsg', 'HomeController@mymsg')->middleware('auth')->name('mymsg');
 
+// Search pages
+Route::post('/search/sectorpage', 'HomeController@sectorpage')->name('sectorpage');
+
 // MyPages
 Route::get('/homepage', 'MyPageController@index')->name('homepage');
-Route::post('/homepage', 'MyPageController@createnote')->name('createnote');
+Route::post('/mypage/homepage', 'MyPageController@createnote')->name('createnote');
+
 Route::get('/myfollow', 'MyPageController@myfollow')->name('myfollow');
 Route::get('/myQA', 'MyPageController@myQA')->name('myQA');
 

@@ -5,11 +5,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <input type="button" disabled="disabled" value="购物笔记">            
-            <a href="{{ route('home') }}">
-                <input type="button" name="myfollow" value="我的关注">
+            <a href="{{ route('homepage') }}">
+                <input type="button" name="mynote" value="购物笔记">            
             </a>
-            <a href="{{ route('home') }}">
+            <input type="button" disabled="disabled" name="myfollow" value="我的关注">
+            <a href="{{ route('myQA') }}">
                 <input type="button" name="myQA" value="我的问答">
             </a>
         </div>
@@ -17,8 +17,16 @@
 </div>
 <br>
 <div class="container">
-    今天 （ {{ date('Y-m-d') }} ）<a href="">新建购物笔记>></a>
+    我关注的行业：行业xxx <input type="button" name="" value="取消关注"> ......... 
     <hr>
-    My account = {{ $thisAuth->email }}
+    我关注的品牌：品牌xxx <input type="button" name="" value="取消关注"> ......... 
+    <hr>
+    我关注的产品：产品xxx <input type="button" name="" value="取消关注"> ......... 
+    <hr>
+    我关注的好友：好友xxx <input type="button" name="" value="取消关注"> ......... 
+    <hr>
+    我关注的问题：问题xxx <input type="button" name="" value="取消关注"> ......... 
+    <hr>
+    
 </div>
 @endsection
