@@ -14,6 +14,7 @@
             性别:     {{ Auth::user()->sex }} <br>
             年龄: <br>
             职业: <br>
+            个性化描述 <br>
             <a href=" {{ route('home') }} ">修改我的资料>></a>
         </div>
         <div class="col-md-4">

@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.appsearch')
 
 @section('content')
+<br>
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -11,7 +12,7 @@
         </div>
         <div class="col-md-4">
             属于xxxx行业 <br>            
-            <a href="">进入行业百科>></a>
+            <a href=" {{ url('/search/QandApage/1') }} ">进入行业百科>></a>
         </div>
     </div>
     <hr>

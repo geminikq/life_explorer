@@ -98,4 +98,15 @@ class HomeController extends Controller
         return view('search.sectorpage');
     }
 
+    public function QandApage($id)
+    {
+
+        return view('search.QandApage');
+    }
+
+    public function questionpage($id)
+    {
+        return view('search.questionpage');
+    }
+
 }

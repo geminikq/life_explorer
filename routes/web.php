@@ -20,6 +20,8 @@ Route::get('/mymsg', 'HomeController@mymsg')->middleware('auth')->name('mymsg');
 
 // Search pages
 Route::post('/search/sectorpage', 'HomeController@sectorpage')->name('sectorpage');
+Route::get('/search/QandApage/{id}', 'HomeController@QandApage')->name('QandApage');
+Route::get('/search/questionpage/{id}', 'HomeController@questionpage')->name('questionpage');
 
 // MyPages
 Route::get('/homepage', 'MyPageController@index')->name('homepage');
