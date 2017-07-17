@@ -26,7 +26,6 @@
     我关注的好友：好友xxx <input type="button" name="" value="取消关注"> ......... 
     <hr>
     我关注的问题：问题xxx <input type="button" name="" value="取消关注"> ......... 
-    <hr>
-    
+    <hr>    
 </div>
 @endsection

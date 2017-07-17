@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-6">
             问题a：xxxxxxxxxxxxx？<br>
-            答：xxxxxxxx...........
+            推荐的回答：xxxxxxxx...........
         </div>
         <div class="col-md-3">
             问题属性：<br>

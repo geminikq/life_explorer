@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Sector;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,17 +32,12 @@ class HomeController extends Controller
         $users = User::all();
         $auth = Auth::user();
 
-        //$recs = arrat();
         $rec = ['recMsgType' => 'QandA', 
                 'recMsgContent' => '奶粉中的dha到底是什么？', 
                 'recReason' => '3328人浏览'];
 
         $recs = [];
-        //array_push($recs, $rec);
         $recs[] = $rec;
-        //$recommendMsg = array();
-        //$recommendMsg[] = $rec;
-        //echo $recs;
 
         return view('home', ['users' => $users, 'recs' => $recs]);
     }
@@ -68,11 +65,6 @@ class HomeController extends Controller
             $option = 'QandA';
         }
         $indexs = [];
-        $index = ['name' => $content, 
-                'type' => $option, 
-                'score' => '85',
-                'id' => '5'];
-        $indexs[] = $index;
         if ($option == 'sector')
         {
 
@@ -87,15 +79,36 @@ class HomeController extends Controller
         }
         else if ($option == 'QandA')
         {
-
+            $sectors = Sector::where('name', 'like', '%'.$content.'%')->get();
+            
+            foreach ($sectors as $sector)
+            {
+                $index['name'] = $sector->name;
+                $index['type'] = $option;
+                $index['score'] = '4.7';
+                $index['follower'] = '3456';
+                $index['id'] = $sector->id;
+                
+                $indexs[] = $index;
+            }
         }
 
         return view('search.search', ['error' => $error, 'indexs' => $indexs]);
     }
 
-    public function sectorpage()
+    public function sectorpage($id)
     {
         return view('search.sectorpage');
+    }
+
+    public function brandpage($id)
+    {
+        return view('search.brandpage');
+    }
+
+    public function productpage($id)
+    {
+        return view('search.productpage');
     }
 
     public function QandApage($id)

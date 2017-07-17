@@ -19,7 +19,9 @@ Route::post('/search', 'HomeController@search')->name('search');
 Route::get('/mymsg', 'HomeController@mymsg')->middleware('auth')->name('mymsg');
 
 // Search pages
-Route::post('/search/sectorpage', 'HomeController@sectorpage')->name('sectorpage');
+Route::get('/search/sectorpage/{id}', 'HomeController@sectorpage')->name('sectorpage');				// goto brand page
+Route::get('/search/brandpage/{id}', 'HomeController@brandpage')->name('brandpage');				// goto product page
+Route::get('/search/productpage/{id}', 'HomeController@productpage')->name('productpage');			
 Route::get('/search/QandApage/{id}', 'HomeController@QandApage')->name('QandApage');
 Route::get('/search/questionpage/{id}', 'HomeController@questionpage')->name('questionpage');
 

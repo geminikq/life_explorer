@@ -1,7 +1,7 @@
 @extends('layouts.appsearch')
 
 @section('content')
-<br>
+<hr>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -10,14 +10,20 @@
                 你可以搜索如下内容balabala.....
             @else
                 @foreach ($indexs as $index)
-                    {{ $index['name'] }} -- {{ $index['type'] }} -- 推荐指数: {{ $index['score'] }}
-                    <form method="POST" action="{{ route('sectorpage') }}">
-                        {{ csrf_field() }} 
-                        <input type="hidden" name="searchid" value="{{ $index['id'] }}">
-                        <input type="submit" name="searchbtn" value="详细内容">
-                    </form>                    
-                    不同的类别点击进入不同的页面，行业进入sectorpage，品牌进入brandpage，产品进入productpage，百科进入QandApage）
-                    <br>
+                    {{ $index['name'] }} -- 
+                    属于类别: {{ $index['type'] }} -- 
+                    推荐指数: {{ $index['score'] }} --
+                    关注人数: {{ $index['follower'] }} -- 
+                    @if ( $index['type'] == 'sector')
+                        <a href=" {{ url('/search/sectorpage/'.$index['id']) }} ">详细内容</a>
+                    @elseif ( $index['type'] == 'brand' )
+                        <a href=" {{ url('/search/brandpage/'.$index['id']) }} ">详细内容</a>
+                    @elseif ( $index['type'] == 'product' )
+                        <a href=" {{ url('/search/productpage/'.$index['id']) }} ">详细内容</a>
+                    @elseif ( $index['type'] == 'QandA' )
+                        <a href=" {{ url('/search/QandApage/'.$index['id']) }} ">详细内容</a>
+                    @endif                    
+                    <hr>
                 @endforeach
             @endif           
         </div>
