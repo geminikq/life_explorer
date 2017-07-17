@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            行业名字 -- 行业/细分行业 <br> 推荐指数: 85 
+            行业名字 -- 行业 <br> 推荐指数: 85 
         </div>
         <div class="col-md-4">
             1234人关注 <br> <a href="">加关注</a> 

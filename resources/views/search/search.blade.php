@@ -11,7 +11,7 @@
             @else
                 @foreach ($indexs as $index)
                     {{ $index['name'] }} -- 
-                    属于类别: {{ $index['type'] }} -- 
+                    属于类别: {{ $index['attr'] }} -- 
                     推荐指数: {{ $index['score'] }} --
                     关注人数: {{ $index['follower'] }} -- 
                     @if ( $index['type'] == 'sector')

@@ -20,6 +20,7 @@ Route::get('/mymsg', 'HomeController@mymsg')->middleware('auth')->name('mymsg');
 
 // Search pages
 Route::get('/search/sectorpage/{id}', 'HomeController@sectorpage')->name('sectorpage');				// goto brand page
+//Route::get('/search/subsectorpage/{id}', 'HomeController@subsectorpage')->name('subsectorpage');	// goto brand page
 Route::get('/search/brandpage/{id}', 'HomeController@brandpage')->name('brandpage');				// goto product page
 Route::get('/search/productpage/{id}', 'HomeController@productpage')->name('productpage');			
 Route::get('/search/QandApage/{id}', 'HomeController@QandApage')->name('QandApage');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Sector;
+use App\Sub_sector;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -65,9 +66,30 @@ class HomeController extends Controller
             $option = 'QandA';
         }
         $indexs = [];
-        if ($option == 'sector')
+        if ($option == 'sector' || $option == 'QandA')
         {
-
+            $sectors = Sector::where('name', 'like', '%'.$content.'%')->get();
+            foreach ($sectors as $sector)
+            {
+                $index['name'] = $sector->name;
+                $index['type'] = $option;
+                $index['attr'] = '行业';
+                $index['score'] = '4.7';
+                $index['follower'] = '3456';
+                $index['id'] = $sector->id;                
+                $indexs[] = $index;
+            }
+            $sectors = Sub_sector::where('name', 'like', '%'.$content.'%')->get();            
+            foreach ($sectors as $sector)
+            {
+                $index['name'] = $sector->name;
+                $index['type'] = $option;
+                $index['attr'] = '细分行业';
+                $index['score'] = '4.2';
+                $index['follower'] = '1256';
+                $index['id'] = $sector->id;                
+                $indexs[] = $index;
+            }
         }
         else if ($option == 'brand')
         {
@@ -77,21 +99,6 @@ class HomeController extends Controller
         {
 
         }
-        else if ($option == 'QandA')
-        {
-            $sectors = Sector::where('name', 'like', '%'.$content.'%')->get();
-            
-            foreach ($sectors as $sector)
-            {
-                $index['name'] = $sector->name;
-                $index['type'] = $option;
-                $index['score'] = '4.7';
-                $index['follower'] = '3456';
-                $index['id'] = $sector->id;
-                
-                $indexs[] = $index;
-            }
-        }
 
         return view('search.search', ['error' => $error, 'indexs' => $indexs]);
     }
@@ -100,7 +107,12 @@ class HomeController extends Controller
     {
         return view('search.sectorpage');
     }
-
+    /*
+    public function subsectorpage($id)
+    {
+        return view('search.subsectorpage');        
+    }
+    */
     public function brandpage($id)
     {
         return view('search.brandpage');
