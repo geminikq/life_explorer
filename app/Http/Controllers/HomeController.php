@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Sector;
 use App\Sub_sector;
+use App\Question;
+use App\Answer;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -66,8 +68,8 @@ class HomeController extends Controller
             $option = 'QandA';
         }
         $indexs = [];
-        if ($option == 'sector' || $option == 'QandA')
-        {
+        if ($option == 'sector')
+        {            
             $sectors = Sector::where('name', 'like', '%'.$content.'%')->get();
             foreach ($sectors as $sector)
             {
@@ -98,6 +100,24 @@ class HomeController extends Controller
         else if ($option == 'product')
         {
 
+        }
+        else if ($option == 'QandA')
+        {
+            $questions = Question::where('content', 'like', '%'.$content.'%')->get();
+            foreach ($questions as $question)
+            {                
+                $index['name'] = $question->content;
+                $index['type'] = $option;
+                $index['attr'] = '问答';
+                $index['score'] = '4.2';
+                $index['follower'] = '1256';
+                $index['id'] = $question->id;                  
+                //echo $index['name'];
+                $author_id = $question->user_id;
+                $index['author'] = User::where('id', $author_id)->first()->name;
+                //$index['id'] = $question->id;
+                $indexs[] = $index;
+            }
         }
 
         return view('search.search', ['error' => $error, 'indexs' => $indexs]);

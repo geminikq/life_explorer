@@ -85,8 +85,10 @@ CREATE TABLE questions (
     id INT AUTO_INCREMENT PRIMARY KEY, 
     user_id INT NOT NULL,
     sector_id INT,
+    sub_sector_id INT,
     brand_id INT,
     product_id INT,
+    content_tag_id INT,
     content VARCHAR(4096),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -110,6 +112,7 @@ CREATE TABLE answers (
     id INT AUTO_INCREMENT PRIMARY KEY, 
     user_id INT NOT NULL,
     question_id INT NOT NULL,
+    content_tag_id INT NULL,
     content VARCHAR(8192),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
