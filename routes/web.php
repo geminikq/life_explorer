@@ -35,6 +35,9 @@ Route::get('/myQA', 'MyPageController@myQA')->name('myQA');
 
 Route::get('/mypage/shoppingnote/{id}', 'MyPageController@shoppingnote')->name('shoppingnote');
 
+// Questions & Answers in this community
+Route::get('/communityQA/askquestion/{id}', 'CommunityActivityController@askquestion')->name('askquestion');
+
 Auth::routes();
 
 //Route::get('/', function() {

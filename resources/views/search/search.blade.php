@@ -15,7 +15,8 @@
                         属于类别: {{ $index['attr'] }} -- 
                         推荐指数: {{ $index['score'] }} --
                         关注人数: {{ $index['follower'] }} -- 
-                        <a href=" {{ url('/search/sectorpage/'.$index['id']) }} ">详细内容</a>
+                        <a href=" {{ url('/search/sectorpage/'.$index['id']) }} ">查看行业信息</a>
+                        <a href=" {{ url('/search/QandApage/1') }} ">进入行业百科</a>
                     @elseif ( $index['type'] == 'brand' )
                         <a href=" {{ url('/search/brandpage/'.$index['id']) }} ">详细内容</a>
                     @elseif ( $index['type'] == 'product' )

@@ -145,8 +145,7 @@ class HomeController extends Controller
 
     public function QandApage($id)
     {
-
-        return view('search.QandApage');
+        return view('search.QandApage',['sector_id' => $id]);
     }
 
     public function questionpage($id)

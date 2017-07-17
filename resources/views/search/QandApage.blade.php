@@ -11,7 +11,7 @@
             1234个问题 <br> 34677个回答
         </div>
         <div class="col-md-3">
-            <a href="">我要提问</a>
+            <a href=" {{ url('/communityQA/askquestion/'.$sector_id) }} ">我要提问</a>
         </div>
     </div>
     <hr>
