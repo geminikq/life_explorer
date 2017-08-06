@@ -19,7 +19,7 @@
 <div class="container">
     <br>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <!-- this is an example of how to show db data in view -->
             @foreach ($recs as $rec)
                 消息类型 {{ $rec['recMsgType'] }} icon -- 

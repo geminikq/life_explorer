@@ -120,7 +120,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('search.search', ['error' => $error, 'indexs' => $indexs]);
+        return view('search.search', ['error' => $error, 'indexs' => $indexs, 'content' => $content, 'option' => $option]);
     }
 
     public function sectorpage($id)
